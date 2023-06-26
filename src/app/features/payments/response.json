@@ -1,0 +1,15 @@
+{
+  "nroCuota": 1,
+  "tea": 151.81701168189804,
+  "tep": 8.000000000000007,
+  "saldoInicial": 8090.0,
+  "intereses": 647.2000000000006,
+  "cuota": 647.2000000000006,
+  "amortizacion": 0.0,
+  "seguroDegravamen": 4.045,
+  "seguroTodoRiesgo": 5.999999999999999,
+  "gastosAdministrativos": 10.0,
+  "comisionPeriodica": 30.0,
+  "portes": 20.0,
+  "saldoFinalPeriodo": 8090.0
+}

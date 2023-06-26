@@ -1,0 +1,148 @@
+@use "sass:map";
+@import '../../../../palette';
+
+:host {
+  display: block;
+  min-height: calc(100vh);
+
+  .pdp-form__card {
+    padding: 20px 60px 24px;
+    border-radius: 24px;
+
+    mat-card-content {
+      .row {
+        column-gap: 40px;
+        justify-content: start;
+      }
+    }
+
+    .pdp-form__field {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      .pdp-form__field__label {
+        color: map.get($colors, "primary");
+        font-weight: 400;
+        margin-bottom: 4px;
+      }
+
+      mat-select map-option {
+        width: 400px;
+      }
+
+      mat-form-field.mat-mdc-form-field {
+        width: 240px;
+
+        .pdp-form__field__amount {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        input {
+          // height: 44px;
+          border-radius: 8px;
+          font-size: 1rem;
+          font-weight: bold;
+        }
+
+        mat-error {
+          font-size: 0.85rem;
+        }
+      }
+    }
+
+    .pdp-form__action {
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+
+      .pdp-form__value {
+        margin: 0px;
+        font-weight: bold;
+
+        .active {
+          color: map.get($colors, "primary");
+          margin-right: 8px;
+        }
+
+        .inactive {
+          color: gray;
+          margin-left: 8px;
+        }
+
+        .pdp-form__type-change {
+          font-size: 1.5rem;
+        }
+
+        .pdp-form__pipe {
+          font-size: 1.65rem;
+          font-weight: bolder;
+        }
+      }
+
+      button {
+        padding: 20px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .pdp-form__button {
+    // background-color: aqua;
+    margin: 0px 28px 16px;
+  }
+}
+
+@media (max-width: 540px) {
+  .pdp-form {
+    .pdp-form__form {
+      .pdp-form__card {
+        padding: 20px 8px 24px;
+
+        .pdp-form__field {
+          mat-form-field.mat-mdc-form-field {
+            width: 240px;
+          }
+
+          .pdp-form__field__amount {
+            input {
+              width: 200px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  :host {
+    .pdp-form {
+      .pdp-form__form {
+        .pdp-form__card {
+          mat-card-content .row {
+            flex-direction: column;
+          }
+
+          .pdp-form__field {
+            .pdp-form__field__amount {
+              input {
+                height: 20px;
+                font-size: 1.25rem;
+              }
+            }
+          }
+
+          .pdp-form__action {
+            button {
+              margin-top: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

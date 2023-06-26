@@ -1,0 +1,106 @@
+<header class="header">
+  <div class="header__toolbar">
+
+  </div>
+  <div class="header__navbar">
+    <img src="../../../assets/images/logo.PNG" alt="" srcset="">
+    <nav class="header__navbar__content">
+      <ul class="header__navbar__list">
+        <li>Nosotros</li>
+        <li>Preguntas frecuentes</li>
+        <li>Blog</li>
+        <li class="button-outlet" (click)="logout()">Cerrar sesión</li>
+      </ul>
+      <ul class="header__navbar__list-vertical" [ngClass]="showMenu ? 'show' : 'hide' ">
+        <li>Nosotros</li>
+        <li>Preguntas frecuentes</li>
+        <li>Blog</li>
+        <li>Cerrar sesión</li>
+      </ul>
+      <button class="header__button-menu" mat-fab color="primary" type="button" (click)="showMenu = !showMenu">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<ng-container *ngIf="showForm; else table">
+  <div class="form-generator-pdp">
+    <app-pdp-form (formData)="generatePDP($event)"></app-pdp-form>
+  </div>
+</ng-container>
+<ng-template #table>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="nroCuota">
+      <mat-header-cell *matHeaderCellDef> N. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.nroCuota}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="tea">
+      <mat-header-cell *matHeaderCellDef> TEA </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.tea | percent}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="tep">
+      <mat-header-cell *matHeaderCellDef> TEP </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.tep | percent}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="saldoInicial">
+      <mat-header-cell *matHeaderCellDef> Saldo Inicial </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.saldoInicial |  currency:'PEN':'symbol-narrow':'4.2-2'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="intereses">
+      <mat-header-cell *matHeaderCellDef> Intereses </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.intereses |  currency:'PEN':'symbol-narrow':'4.2-2'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="cuota">
+      <mat-header-cell *matHeaderCellDef> Cuota </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.cuota |  currency:'PEN':'symbol-narrow':'4.2-2'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="amortizacion">
+      <mat-header-cell *matHeaderCellDef> Amortización </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.amortizacion |  currency:'PEN':'symbol-narrow':'4.2-2'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="seguroDegravamen">
+      <mat-header-cell *matHeaderCellDef> Seguro Degravamen </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.seguroDegravamen |  currency:'PEN':'symbol-narrow':'4.2-2'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="seguroTodoRiesgo">
+      <mat-header-cell *matHeaderCellDef> Seguro Todo Riesgo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.seguroTodoRiesgo |  currency:'PEN':'symbol-narrow':'4.2-2'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="gastosAdministrativos">
+      <mat-header-cell *matHeaderCellDef> Gastos Administrativos </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.gastosAdministrativos |  currency:'PEN':'symbol-narrow':'4.2-2'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="comisionPeriodica">
+      <mat-header-cell *matHeaderCellDef> Comision Periódica </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.comisionPeriodica |  currency:'PEN':'symbol-narrow':'4.2-2'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="portes">
+      <mat-header-cell *matHeaderCellDef> Portes </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.portes |  currency:'PEN':'symbol-narrow':'4.2-2'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="saldoFinalPeriodo">
+      <mat-header-cell *matHeaderCellDef> Saldo Final Periodo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.saldoFinalPeriodo |  currency:'PEN':'symbol-narrow':'4.2-2'}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</ng-template>

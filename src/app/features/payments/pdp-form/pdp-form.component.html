@@ -1,0 +1,174 @@
+<div class="pdp-form">
+  <form class="pdp-form__form" [formGroup]="formGroup" (ngSubmit)="generatePDP()">
+    <mat-card class="pdp-form__card">
+      <mat-card-content>
+        <div class="row">
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">Tipo de Tasa</mat-label>
+            <mat-radio-group aria-label="Select an option" formControlName="tipoDeTasa">
+              <mat-radio-button value="E">EFECTIVA</mat-radio-button>
+              <mat-radio-button value="N">NOMINAL</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <ng-container *ngIf="formGroup.get('tipoDeTasa')?.value == 'E'; else tep">
+            <div class="pdp-form__field">
+              <mat-label class="pdp-form__field__label">Valor de la Tasa</mat-label>
+              <mat-form-field class="min" appearance="outline">
+                <div class="pdp-form__field__amount">
+                  <input matInput placeholder="Valor Tasa Efectiva" type="number" formControlName="valorTasaEfectiva">
+                </div>
+              </mat-form-field>
+            </div>
+            <div class="pdp-form__field">
+              <mat-label class="pdp-form__field__label">Tipo de tasa</mat-label>
+              <mat-form-field class="min" appearance="outline">
+                <mat-select formControlName="tipoTasaEfectiva" name="tea">
+                  <mat-option>Ninguno</mat-option>
+                  <mat-option *ngFor="let e of typeRateE" [value]="e.value">
+                    {{e.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </ng-container>
+          <ng-template #tep>
+            <div class="pdp-form__field">
+              <mat-label class="pdp-form__field__label">Valor de la Tasa</mat-label>
+              <mat-form-field class="min" appearance="outline">
+                <div class="pdp-form__field__amount">
+                  <input matInput placeholder="Valor Tasa Nominal" type="number" formControlName="valorTasaNominal">
+                </div>
+              </mat-form-field>
+            </div>
+            <div class="pdp-form__field">
+              <mat-label class="pdp-form__field__label">Tipo de tasa</mat-label>
+              <mat-form-field class="min" appearance="outline">
+                <mat-select formControlName="valorTasaNominal" name="tna">
+                  <mat-option>Ninguno</mat-option>
+                  <mat-option *ngFor="let n of typeRateN" [value]="n.value">
+                    {{n.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </ng-template>
+        </div>
+        <div class="row">
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">frecuenciaCapitalizacionDias</mat-label>
+            <mat-form-field class="min" appearance="outline">
+              <div class="pdp-form__field__amount">
+                <input matInput placeholder="" type="number" formControlName="frecuenciaCapitalizacionDias">
+              </div>
+            </mat-form-field>
+          </div>
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">precioVenta</mat-label>
+            <mat-form-field class="min" appearance="outline">
+              <div class="pdp-form__field__amount">
+                <input matInput placeholder="" type="number" formControlName="precioVenta">
+              </div>
+            </mat-form-field>
+          </div>
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">porcentajeCuotaInicial</mat-label>
+            <mat-form-field class="min" appearance="outline">
+              <div class="pdp-form__field__amount">
+                <input matInput placeholder="" type="number" formControlName="porcentajeCuotaInicial">
+              </div>
+            </mat-form-field>
+          </div>
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">numeroAnios</mat-label>
+            <mat-form-field class="min" appearance="outline">
+              <div class="pdp-form__field__amount">
+                <input matInput placeholder="" type="number" formControlName="numeroAnios">
+              </div>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">Tipo Periodo Gracia</mat-label>
+            <mat-form-field class="min" appearance="outline">
+              <mat-select formControlName="tipoPeriodoGracia" name="tpg">
+                <mat-option *ngFor="let p of typePeriodGrace" [value]="p.value">
+                  {{p.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">cantidadPeriodoGracia</mat-label>
+            <mat-form-field class="min" appearance="outline">
+              <div class="pdp-form__field__amount">
+                <input matInput placeholder="" type="number" formControlName="cantidadPeriodoGracia">
+              </div>
+            </mat-form-field>
+          </div>
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">tasaSeguroDesgravamen</mat-label>
+            <mat-form-field class="min" appearance="outline">
+              <div class="pdp-form__field__amount">
+                <input matInput placeholder="" type="number" formControlName="tasaSeguroDesgravamen">
+              </div>
+            </mat-form-field>
+          </div>
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">tasaSeguroTodoRiesgo</mat-label>
+            <mat-form-field class="min" appearance="outline">
+              <div class="pdp-form__field__amount">
+                <input matInput placeholder="" type="number" formControlName="tasaSeguroTodoRiesgo">
+              </div>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">gastosAdministrativos</mat-label>
+            <mat-form-field class="min" appearance="outline">
+              <div class="pdp-form__field__amount">
+                <input matInput placeholder="" type="number" formControlName="gastosAdministrativos">
+              </div>
+            </mat-form-field>
+          </div>
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">portes</mat-label>
+            <mat-form-field class="min" appearance="outline">
+              <div class="pdp-form__field__amount">
+                <input matInput placeholder="" type="number" formControlName="portes">
+              </div>
+            </mat-form-field>
+          </div>
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">comisionPeriodica</mat-label>
+            <mat-form-field class="min" appearance="outline">
+              <div class="pdp-form__field__amount">
+                <input matInput placeholder="" type="number" formControlName="comisionPeriodica">
+              </div>
+            </mat-form-field>
+          </div>
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">costosNotariales</mat-label>
+            <mat-form-field class="min" appearance="outline">
+              <div class="pdp-form__field__amount">
+                <input matInput placeholder="" type="number" formControlName="costosNotariales">
+              </div>
+            </mat-form-field>
+          </div>
+          <div class="pdp-form__field">
+            <mat-label class="pdp-form__field__label">registrales</mat-label>
+            <mat-form-field class="min" appearance="outline">
+              <div class="pdp-form__field__amount">
+                <input matInput placeholder="" type="number" formControlName="registrales">
+              </div>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row pdp-form__action">
+          <button mat-raised-button type="submit" color="accent">Realizar cambio</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>

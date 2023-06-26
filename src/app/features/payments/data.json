@@ -1,0 +1,20 @@
+{
+  "tipoDeTasa": "E",
+  "valorTasaEfectiva": 0.08,
+  "tipoTasaEfectiva": "TEM",
+  "valorTasaNominal": 0.0,
+  "tipoTasaNominal": "",
+  "frecuenciaCapitalizacionDias": 0,
+  "precioVenta": 10000.0,
+  "porcentajeCuotaInicial": 0.20,
+  "numeroAnios": 1,
+  "tipoPeriodoGracia": "P",
+  "cantidadPeriodoGracia": 2,
+  "tasaSeguroDesgravamen": 0.0005,
+  "tasaSeguroTodoRiesgo": 0.0006,
+  "gastosAdministrativos": 10,
+  "portes": 20,
+  "comisionPeriodica": 30,
+  "costosNotariales": 40,
+  "registrales": 50
+}
