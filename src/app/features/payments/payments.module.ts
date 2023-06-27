@@ -18,6 +18,7 @@ import { PaymentsService } from './payments.service';
 import { RouterModule, Routes } from '@angular/router';
 import { PaymentsComponent } from './payments.component';
 import { PdpFormComponent } from './pdp-form/pdp-form.component';
+import { EpPercentPipe } from './ep-percent.pipe';
 
 const routes: Routes = [
   { path: '', component: PaymentsComponent, }
@@ -27,7 +28,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     PaymentsComponent,
-    PdpFormComponent
+    PdpFormComponent,
+    EpPercentPipe
   ],
   imports: [
     CommonModule,

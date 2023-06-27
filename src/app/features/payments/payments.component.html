@@ -40,13 +40,13 @@
     <!-- Name Column -->
     <ng-container matColumnDef="tea">
       <mat-header-cell *matHeaderCellDef> TEA </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element?.tea | percent}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element?.tea /100 | percent:'3.2-2'}} </mat-cell>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="tep">
       <mat-header-cell *matHeaderCellDef> TEP </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element?.tep | percent}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element?.tep / 100 | percent:'1.2-2'}} </mat-cell>
     </ng-container>
 
     <!-- Symbol Column -->
